@@ -18,7 +18,7 @@ locMenorIgualeTipo
 db.meuspokemons.find(locMenorIgualeTipo)
 
 /*4 - Liste todos Pokemons com o nome 'Picachu' OU com attack menor ou igual que 0.5*/
-var locOrAttack = {$or:[{name:/Raichu/},{attack:{$lte:'55'}}]}
+var locOrAttack = {$or:[{name:/Raichu/i},{attack:{$lte:'55'}}]} /*O i no objeto name representa o sentive em caso de acentuaçao*/
 locOrAttack
 db.meuspokemons.find(locOrAttack)
 

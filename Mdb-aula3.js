@@ -16,10 +16,10 @@ DEVEMOS USAR $lt que representa (less than) - Menor que
 PARA CONDIÇAO <= menor ou igual
 DEVEMOS USAR $lte que representa (less than or equal) - Menor ou igual
 
-PARA CONDIÇAO <= maior
+PARA CONDIÇAO > maior
 DEVEMOS USAR $gt que representa (great than) - Maior que
 
-PARA CONDIÇAO <= maior ou igual
+PARA CONDIÇAO >= maior ou igual
 DEVEMOS USAR $gte que representa (great than or equal) - Maior ou igual
 */
 db.meuspokemons.find({attack:{$lte:'45'}}) /*Consulta executada sem usar a variavel qry*/

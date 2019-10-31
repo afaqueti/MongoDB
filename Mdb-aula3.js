@@ -1,3 +1,4 @@
+use b_mean_pokemons
 db.meuspokemons.find()
 
 var query = {name:'Raichu'}
@@ -20,6 +21,10 @@ DEVEMOS USAR $gt que representa (great than) - Maior
 PARA CONDIÇAO <= maior ou igual
 DEVEMOS USAR $gte que representa (great than or equal) - Maior ou igual
 */
-var query = {height:{$lt:0.5}}
-query
+db.meuspokemons.find({attack:{$lte:'45'}}) /*Consulta executada sem usar a variavel qry*/
+
+var qry = {attack: {$lte: '40'}} /*Consulta executada usando a variavel qry, procedimento possibilita
+                                  alteraçao somente dos valores.*/
+qry
+db.meuspokemons.find(qry)
 

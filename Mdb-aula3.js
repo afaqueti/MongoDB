@@ -32,7 +32,23 @@ db.meuspokemons.find(qry)
 ================== OPERADORES LOGICOS =========================
 db.meuspokemons.find()
 var query = {$or:[{name:'Raichu'},{heigth:'0.3'}]} /*O operados OR ira aceitar um array de obejtos, portanto ele ira retornar objetos verdadeiros
-                                                   ou o nome ou a altura, conforme valor do objeto.*/
+                                                    ou o nome ou a altura, conforme valor do objeto.*/
 query
 db.meuspokemons.find(query) /*O parametro QEURY ira usar os objetos conforme a variavel definida*/
+
+var locNor = {$nor:[{name:'Raichu'},{heigth:'0.3'}]} /*Nao ira retornar os valores do or, pois e uma negaçao informando que os objetos nao retornara*/
+locNor
+db.meuspokemons.find(locNor)
+
+var locand = {$and:[{name:'Weedle'},{attack:'55'}]} /*O 'AND' Ira retornar todos as clausulas que comtempla todas as informaçoes do objeto*/
+locand
+db.meuspokemons.find(locand)
+
+================== OPERADORES EXISTENCIAL =========================
+
+
+
+
+
+
 

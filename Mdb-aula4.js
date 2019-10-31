@@ -29,15 +29,15 @@ db.meuspokemons.update(query,modi) /*Por favor nao executa essa linha, pois vai 
 Sintaxe - {$set:{campo: valor}}
 
 db.meuspokemons.update({name:'Sandshrew'},{$set:{heigth:0.6}})/*update pode ser executado somente com um parametro*/
-db.meuspokemons.update({name:'Sandshrew'},{$set:{defense:45,attack:40}})/*update poder ser exectdado com dois parametros*/
+db.meuspokemons.update({name:'Sandshrew'},{$set:{defense:45,attack:40}})/*update poder ser executdado com dois parametros*/
 db.meuspokemons.find({$and:[{name:'Sandshrew'}]})
 db.meuspokemons.find()
 
-var qry = {name:'Testemon'}/*Poder gerada uma variavel de localizaçao*/
+var qry = {name:'Testemon'}/*Poder ser gerada uma variavel de localizaçao*/
 qry
-var up = {$set:{defense:22}}/*Depois ser gearda uma variavel de mofificaçao*/
+var up = {$set:{defense:22}}/*Depois gerar uma variavel de modificaçao*/
 up
-db.meuspokemons.update(qry,up)/*Com as duas variaveis os update e executado conforme a variavel "qry" que localizou o name: Testemon para o campo defense*/
+db.meuspokemons.update(qry,up)/*Com as duas variaveis os update e executado conforme a variavel "qry" que localizou o name:Testemon para o campo defense*/
 db.meuspokemons.find(qry)
 
 Sintaxe - {$unset:{campo: valor}}/*Serve para Deletar*/

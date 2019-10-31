@@ -13,8 +13,14 @@ locMaiorIgual
 db.meuspokemons.find(locMaiorIgual)
 
 /*3 - Liste todos Pokemons com a altura menor ou igual que 0.5 E do tipo grama;*/
+var  locMenorIgualeTipo = {$and:[{defense:'40'},{heigth:{$lte:'0.5'}}]}
+locMenorIgualeTipo
+db.meuspokemons.find(locMenorIgualeTipo)
 
 /*4 - Liste todos Pokemons com o nome 'Picachu' OU com attack menor ou igual que 0.5*/
+var locOrAttack = {$or:[{name:'Raichu'},{attack:{$lte:'55'}}]}
+locOrAttack
+db.meuspokemons.find(locOrAttack)
 
 /*5 - Liste todos Pokemons com attck maior ou igual que 48 E com height menor ou igual que 0.5*/
 

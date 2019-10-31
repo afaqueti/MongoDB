@@ -22,5 +22,9 @@ var locOrAttack = {$or:[{name:'Raichu'},{attack:{$lte:'55'}}]}
 locOrAttack
 db.meuspokemons.find(locOrAttack)
 
-/*5 - Liste todos Pokemons com attck maior ou igual que 48 E com height menor ou igual que 0.5*/
+/*5 - Liste todos Pokemons com attack maior ou igual que 48 E com height menor ou igual que 0.5*/
+var locAttackEaltura = {$and:[{attack:{$gte:'48'}},{heigth:{$lte:'0.5'}}]}
+locAttackEaltura
+db.meuspokemons.find(locAttackEaltura)
+db.meuspokemons.find()
 

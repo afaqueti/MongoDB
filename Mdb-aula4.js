@@ -40,7 +40,15 @@ up
 db.meuspokemons.update(qry,up)/*Com as duas variaveis os update e executado conforme a variavel "qry" que localizou o name:Testemon para o campo defense*/
 db.meuspokemons.find(qry)
 
+DELETE usando $unset - Operador de Modificaçao ==========================
 Sintaxe - {$unset:{campo: valor}}/*Serve para Deletar*/
+
+var dquery = {name:'Testemon'}
+dquery
+var delquery = {$unset:{heigth: 2.1}}
+delquery
+db.meuspokemons.update(dquery,delquery) /*Procedimento usado para deletar um objeto, usado o $unset para resolver o campo 
+                                        e depois o update para atualizar o valor gerado */
 
 
 

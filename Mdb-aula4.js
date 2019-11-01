@@ -118,11 +118,13 @@ var options = {multi:true}
 db.meuspokemons.update(query,mod,options)
 db.meuspokemons.find()
 
-var query = {}
-var mod = {$set:{moves:['investida']}}
-var options = {multi:true}
-db.meuspokemons.update(query,mod,options)
+var query = {} /*Query para localizar todos os objetos da coleçao*/
+var mod = {$set:{moves:['investida']}}/*Set para inserir o valor 'investida' para todos os objetos da coleçao*/
+var options = {multi:true}/*mult:true servira para incluir o valor do set em todos os objetos da coleçao*/
+db.meuspokemons.update(query,mod,options)/*update com as tres variaveis*/
 db.meuspokemons.find(query)
+
+OPERADOR $in=================================
 
 
 

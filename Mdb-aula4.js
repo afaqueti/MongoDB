@@ -125,9 +125,46 @@ db.meuspokemons.update(query,mod,options)/*update com as tres variaveis*/
 db.meuspokemons.find(query)
 
 OPERADOR $in=================================
+/*O operdor $in retorna os documentos que possui algum dos valores passados dentro do Array
+ARRAY_de_VALORES*/
+Sintaxe - {campo:{$in:[Arrey_de_valores]}}
 
+var inquery = {moves:{$in:[/choque do trovao/i]}}
+var inqry = {moves:{$in:[/choque do trovao/i,/hidro bomba/i]}}/*Ira retornar o valor verdadeiro conforme funçao $in*/
+db.meuspokemons.find(inquery)
+db.meuspokemons.find(inqry)
 
+$nin=================================
+/*not in, retorna o inverso do in. */
+Sintaxe - {campo:{$nin:[Arrey_de_valores]}}
 
+var ninquery = {moves:{$nin:[/choque do trovao/i]}}
+db.meuspokemons.find(ninquery)
 
+$all=================================
+Sintaxe - {campo:{$all:[Arrey_de_valores]}}
+var allquery = {moves:{$all:[/investida/i,/hidro bomba/i]}}
+allquery
+db.meuspokemons.find(allquery)
 
+======================= OPERADORES DE NEGAÇAO ==========================
+sintaxe - {campo:{$ne:valor}}
+/*Funçao pode ser definida como <> =! diferente*/
+var nequery = {type:{$ne:'fogo'}}
+db.meuspokemons.find(nequery)
+
+usado procedimento abaixo para incluir o "type" no objeto Raichu==========================
+
+var query = {name:/Raichu/i} /*Variavel para localizar um objeto conforme o registro name*/
+var p = db.meuspokemons.find(query)
+p /*Variavel para localizar o nome do objeto*/
+
+var p = db.meuspokemons.findOne(query) /*findOne retorna o objeto direto*/
+p
+p.name
+p.type = 'fogo' /*foi necessario usar a variavel 'p' com finOne para definir o formato de altracao, portanto depois foi 
+                incluido um novo objeto 'defense' para o query Caterpie*/
+p
+db.meuspokemons.save(p) /*Apos incluir e necessario usar a funçao save para savar, pois ao incluir o defenser o mesmo estava locamente e nao
+                         no servidor banco de dados*/
 

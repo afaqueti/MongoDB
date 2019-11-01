@@ -1,3 +1,5 @@
+======================= Parte 1 ==========================
+
 use b_mean_pokemos
 db.meuspokemons.find()
 /*
@@ -67,12 +69,12 @@ db.meuspokemons.find(incquery)
 ========================= OPERADORES DE ARRAY ==========================
 
 Sintaxe - {$push:{campo: valor}}
-var pushquery = {name:'Testemon'}
+var pushquery = {name:/Testemon/i}
 pushquery
-var pushqry = {$push:{moves:'choque do trovao'}}
+var pushqry = {$push:{moves:'servi para nada'}}
 pushqry
 db.meuspokemons.update(pushquery,pushqry)
-db.meuspokemons.find(pushquery)
+db.meuspokemons.find()
 
 
 Sintaxe - {$pushAll:{campo: [Arraay_de_valores]}}/*Funçao descontinuada necessario usar aseguente sintaxe
@@ -87,14 +89,43 @@ db.meuspokemons.find(pushquery)
 
 
 Sintaxe - {$pull:{campo: valor}}
-var pullquery = {name:'Testemon'}
+var pullquery = {name:'Weedle'}
 pullquery
-var pullqry = ['choque do trovao']
+var pullqry = ["hidro bomba"]
 pullqry
-var pullmod = {$pull:{moves: ['choque do trovao']}}/*Ira remover o push incluido dentro do moves*/
+var pullmod = {$pull:{moves: ["hidro bomba"]}}/*Ira remover o push incluido dentro do moves*/
 pullmod
 db.meuspokemons.update(pullquery,pullmod)
 db.meuspokemons.find(pullquery)
 db.meuspokemons.find()
+
+Sintaxe - {$pullAll:{campo: [Arraay_de_valores]}}/*Remove mais de um valor*/
+var pullAll = ["hidro bomba"]
+pullAll
+var pullAllmod = {$pullAll:{moves:pullAll}}
+pullAllmod
+db.meuspokemons.update(pullquery,pullAllmod)
+db.meuspokemons.find(pullquery)
+
+======================= Parte 2 ==========================
+upsert 
+
+var query ={}
+query
+var mod ={$set:{actve: false}}/*Active servira para nao fazer update sem where, pois o mongoDB tem como pardrao nao permitir executar update
+                              multiplo nos objetos*/
+var options = {multi:true}
+db.meuspokemons.update(query,mod,options)
+db.meuspokemons.find()
+
+var query = {}
+var mod = {$set:{moves:['investida']}}
+var options = {multi:true}
+db.meuspokemons.update(query,mod,options)
+db.meuspokemons.find(query)
+
+
+
+
 
 

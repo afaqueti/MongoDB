@@ -39,11 +39,17 @@ db.meuspokemons.find()
 
 /*4 - Pesquisar todos os pokemons que possuam o ataque 'investida' e mais um que
 voce adiconou escolha seu pokemon favorito*/
-var loc = {$or:[{name:/AindaNaoExisteMmon/i},{}]}
+var loc = {$or:[{name:/AindaNaoExisteMmon/i},{moves:/investida/i}]}
 db.meuspokemons.find(loc)
 
+/*5 - Pesquisar todos os pokemons que possuam os ataques
+      que voce adicionou, escolha seu pokemon favorito*/
+var locfav = {$or:[{attack:null},{name:'Testemon'},{moves:/raio solar/i}]}
+db.meuspokemons.find(locfav)
 
-/*5 - Pesquisar todos os pokemons que possuam os ataques que voce adicionou, escolha seu pokemon favorito*/
 /*6 - Pesquisar todos que nao sao do tipo 'eletrico'*/
+var tipoele = {type:{$not:/fogo/i}}
+db.meuspokemons.find(tipoele)
+
 /*7 - Pesquisar todos pokemons que tenham o ataque 'investida E tenham a defesa nao menor ou igual a 49'*/
 /*8 - Remover todos os pokemons do tipo agua e com attack menor que 50*/

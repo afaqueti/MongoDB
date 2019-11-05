@@ -51,5 +51,11 @@ db.meuspokemons.find(locfav)
 var tipoele = {type:{$not:/fogo/i}}
 db.meuspokemons.find(tipoele)
 
-/*7 - Pesquisar todos pokemons que tenham o ataque 'investida E tenham a defesa nao menor ou igual a 49'*/
+/*7 - Pesquisar todos pokemons que tenham o ataque 'investida E tenham 
+a defesa nao menor ou igual a 49'*/
+var pok = {$and:[{moves:/investida/i},{defense:{$lte:49}}]}
+db.meuspokemons.find(pok)
+
 /*8 - Remover todos os pokemons do tipo agua e com attack menor que 50*/
+var remov = {$and:[{type:/fogo/i},{attack:{$lt:50}}]}
+db.meuspokemons.find(remov)

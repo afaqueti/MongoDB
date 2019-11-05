@@ -148,12 +148,14 @@ allquery
 db.meuspokemons.find(allquery)
 
 ======================= OPERADORES DE NEGAÇAO ==========================
+
+$ne=================================
 sintaxe - {campo:{$ne:valor}}
 /*Funçao pode ser definida como <> =! diferente*/
-var nequery = {type:{$ne:'fogo'}}
+var nequery = {type:{$ne:'fogo'}}/*Para esse operador nao e possivel ter o Regex exemplo = /Raichu/i, isso e o REGEX*/
 db.meuspokemons.find(nequery)
 
-usado procedimento abaixo para incluir o "type" no objeto Raichu==========================
+=====usado procedimento abaixo para incluir o "type" no objeto Raichu==========================
 
 var query = {name:/Raichu/i} /*Variavel para localizar um objeto conforme o registro name*/
 var p = db.meuspokemons.find(query)
@@ -168,3 +170,7 @@ p
 db.meuspokemons.save(p) /*Apos incluir e necessario usar a funçao save para savar, pois ao incluir o defenser o mesmo estava locamente e nao
                          no servidor banco de dados*/
 
+$not=================================
+sintaxe - {campo:{$not:valor}}
+var notquery = {name:{$not:/Raichu/i}}/*Todos os objetos menos o 'Raichu'. portanto o Raichu nao foi retornado*/
+db.meuspokemons.find(notquery)

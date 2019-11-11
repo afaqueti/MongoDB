@@ -147,6 +147,8 @@ var allquery = {moves:{$all:[/investida/i,/hidro bomba/i]}}
 allquery
 db.meuspokemons.find(allquery)
 
+db.meuspokemons.find({attack:{$lte:40}})
+
 ======================= OPERADORES DE NEGAÇAO ==========================
 
 $ne=================================
@@ -174,3 +176,6 @@ $not=================================
 sintaxe - {campo:{$not:valor}}
 var notquery = {name:{$not:/Raichu/i}}/*Todos os objetos menos o 'Raichu'. portanto o Raichu nao foi retornado*/
 db.meuspokemons.find(notquery)
+
+
+db.meuspokemons.find()
